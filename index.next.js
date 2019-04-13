@@ -1,6 +1,13 @@
 import { FileBlob } from '@now/build-utils'
 import { compile } from '@riotjs/compiler'
 
+// logger
+const log = (...args) => console.log(...args) // eslint-disable-line
+
+// sourcemap helpers
+const JSONToBase64 = json => Buffer.from(JSON.stringify(json)).toString('base64')
+const sourcemapToString = map => `\n//# sourceMappingURL=${JSONToBase64(map)}`
+
 // generate the build fingerprint
 export const analyze = ({ files, entrypoint }) => files[entrypoint].digest
 
@@ -19,8 +26,18 @@ export async function build({ files, entrypoint, config }) {
   }
   const { data } = await FileBlob.fromStream({ stream })
   const content = data.toString()
-  const output = compile(content, options)
-  const result = new FileBlob({ data: output })
+
+  log('Input file:')
+  log(content)
+
+  const { code, map } = compile(content, options)
+
+  log('Output generated:')
+  log(code)
+
+  const result = new FileBlob({
+    data: `${code}${sourcemapToString(map)}`
+  })
 
   return {
     [entrypoint]: result
