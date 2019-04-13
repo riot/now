@@ -1,11 +1,7 @@
+import { replaceExtension, sourcemapToString } from './utils'
 import { FileBlob } from '@now/build-utils'
 import { compile } from '@riotjs/compiler'
 import generateHTMLPreview from './generate-html-preview'
-import { replaceExtension } from './utils'
-
-// sourcemap helpers
-const JSONToBase64 = json => Buffer.from(JSON.stringify(json)).toString('base64')
-const sourcemapToString = map => `\n//# sourceMappingURL=${JSONToBase64(map)}`
 
 // generate the build fingerprint
 export const analyze = ({ files, entrypoint }) => files[entrypoint].digest
