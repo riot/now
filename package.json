@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "description": "Riot.js now builder",
   "main": "index.js",
-  "jsnext:main": "index.next.js",
-  "module": "index.next.js",
+  "jsnext:main": "src/main.js",
+  "module": "src/main.js",
   "scripts": {
     "prepare": "npm test",
-    "lint": "eslint *.js",
+    "lint": "eslint *.js src/*.js",
     "test": "npm run lint && mocha test.js"
   },
   "files": [
-    "index.next.js"
+    "src"
   ],
   "repository": {
     "type": "git",
