@@ -21,7 +21,7 @@ export default function generateHTMLPreview(entrypoint) {
   <${componentName}></${componentName}>
 
   <script type='module'>
-    import ${componentNameAsJsName} from '${replaceExtension(entrypoint, '.js')}'
+    import ${componentNameAsJsName} from './${replaceExtension(entrypoint, '.js')}'
 
     riot.component(${componentNameAsJsName})(document.querySelector('${componentName}'))
   </script>
