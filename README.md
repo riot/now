@@ -15,7 +15,7 @@ Configure your `now.json` file:
 ```json
 {
   "builds": [
-    { "src": "*.riot", "use": "@riotjs/now" },
+    { "src": "*.riot", "use": "@riotjs/now" }
   ]
 }
 ```
