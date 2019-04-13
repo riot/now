@@ -1,8 +1,7 @@
 import { FileBlob } from '@now/build-utils'
 import { compile } from '@riotjs/compiler'
-
-// logger
-const log = (...args) => console.log(...args) // eslint-disable-line
+import generateHTMLPreview from './generate-html-preview'
+import { replaceExtension } from './utils'
 
 // sourcemap helpers
 const JSONToBase64 = json => Buffer.from(JSON.stringify(json)).toString('base64')
@@ -26,20 +25,17 @@ export async function build({ files, entrypoint, config }) {
   }
   const { data } = await FileBlob.fromStream({ stream })
   const content = data.toString()
-
-  log('Input file:')
-  log(content)
-
   const { code, map } = compile(content, options)
-
-  log('Output generated:')
-  log(code)
-
   const result = new FileBlob({
     data: `${code}${sourcemapToString(map)}`
   })
 
   return {
-    [entrypoint]: result
+    // js output
+    [replaceExtension(entrypoint, '.js')]: result,
+    // preview
+    [replaceExtension(entrypoint, '.html')]: generateHTMLPreview(entrypoint),
+    // original file
+    [entrypoint]: content
   }
 }
