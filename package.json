@@ -6,7 +6,7 @@
   "jsnext:main": "index.next.js",
   "module": "index.next.js",
   "scripts": {
-    "prepare": "npm run build && npm test",
+    "prepare": "npm test",
     "lint": "eslint *.js",
     "doc": "documentation readme index.next.js -s API",
     "test": "npm run lint && mocha test.js"
