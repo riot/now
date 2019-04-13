@@ -8,7 +8,7 @@
   "scripts": {
     "prepare": "npm test",
     "lint": "eslint *.js src/*.js",
-    "test": "npm run lint && mocha test.js"
+    "test": "npm run lint && mocha -r esm test.js"
   },
   "files": [
     "src"
@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "@now/build-utils": "^0.4.40",
-    "esm": "^3.2.22",
-    "@riotjs/compiler": "^4.0.0-beta.5"
+    "@riotjs/compiler": "^4.0.0-beta.5",
+    "cumpa": "^1.0.1",
+    "esm": "^3.2.22"
   }
 }

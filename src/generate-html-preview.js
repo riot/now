@@ -1,12 +1,12 @@
 import { basename, extname } from 'path'
-import { dashToCamelCase, replaceExtension } from './utils'
+import { campializeAndCamelCase, replaceExtension } from './utils'
 
 const RIOT_VERSION = 'next'
 
 export default function generateHTMLPreview(entrypoint) {
   const componentExtension = extname(entrypoint)
   const componentName = basename(entrypoint, componentExtension)
-  const camelCaseComponentName = dashToCamelCase(componentName)
+  const componentNameAsJsName = campializeAndCamelCase(componentName)
 
   // preview template
   return `<!DOCTYPE html>
@@ -21,9 +21,9 @@ export default function generateHTMLPreview(entrypoint) {
   <${componentName}></${componentName}>
 
   <script type='module'>
-    import ${camelCaseComponentName} from '${replaceExtension(entrypoint, '.js')}'
+    import ${componentNameAsJsName} from '${replaceExtension(entrypoint, '.js')}'
 
-    riot.component(${camelCaseComponentName})(document.querySelector('${componentName}'))
+    riot.component(${componentNameAsJsName})(document.querySelector('${componentName}'))
   </script>
 </body>
 </html>`

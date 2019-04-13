@@ -1,3 +1,4 @@
+import compose from 'cumpa'
 import { extname } from 'path'
 
 /**
@@ -10,9 +11,20 @@ export function dashToCamelCase(string) {
 }
 
 /**
+ * Capitalize the first letter of a string
+ * @param   {string} string - input string
+ * @returns {string} myString -> MyString
+ */
+export function capitalize(string) {
+  return `${string.charAt(0).toUpperCase()}${string.slice(1)}`
+}
+
+/**
  * Replace the extension of a file path string
  * @param   {string} path - input file path
  * @param   {string} ext - extension string
  * @returns {string} the original file path with extension replaced
  */
 export const replaceExtension = (path, ext) => path.replace(extname(path), ext)
+
+export const campializeAndCamelCase = compose(capitalize, dashToCamelCase)

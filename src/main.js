@@ -26,16 +26,17 @@ export async function build({ files, entrypoint, config }) {
   const { data } = await FileBlob.fromStream({ stream })
   const content = data.toString()
   const { code, map } = compile(content, options)
-  const result = new FileBlob({
-    data: `${code}${sourcemapToString(map)}`
-  })
 
   return {
     // js output
-    [replaceExtension(entrypoint, '.js')]: result,
-    // preview
-    [replaceExtension(entrypoint, '.html')]: generateHTMLPreview(entrypoint),
-    // original file
-    [entrypoint]: content
+    [replaceExtension(entrypoint, '.js')]: new FileBlob({
+      data: `${code}${sourcemapToString(map)}`
+    }),
+    // html preview
+    [replaceExtension(entrypoint, '.html')]: new FileBlob({
+      data: generateHTMLPreview(entrypoint)
+    }),
+    // original source file
+    [entrypoint]: files[entrypoint]
   }
 }
