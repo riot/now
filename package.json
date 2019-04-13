@@ -1,0 +1,42 @@
+{
+  "name": "@riotjs/now",
+  "version": "0.0.0",
+  "description": "Riot.js now builder",
+  "main": "index.js",
+  "jsnext:main": "index.next.js",
+  "module": "index.next.js",
+  "scripts": {
+    "prepare": "npm run build && npm test",
+    "lint": "eslint *.js",
+    "doc": "documentation readme index.next.js -s API",
+    "test": "npm run lint && mocha test.js"
+  },
+  "files": [
+    "index.next.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GianlucaGuarini/@riotjs/now.git"
+  },
+  "keywords": [
+    "now",
+    "riot",
+    "riot now builder"
+  ],
+  "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GianlucaGuarini/@riotjs/now/issues"
+  },
+  "homepage": "https://github.com/GianlucaGuarini/@riotjs/now#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-riot": "^2.0.0",
+    "esm": "^3.2.22",
+    "mocha": "^6.1.3"
+  },
+  "dependencies": {
+    "@now/build-utils": "^0.4.40",
+    "@riotjs/compiler": "^4.0.0-beta.5"
+  }
+}

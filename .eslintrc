@@ -1,0 +1,7 @@
+extends: eslint-config-riot
+env:
+  mocha: true
+
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: 'module'
