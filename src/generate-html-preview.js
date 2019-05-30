@@ -1,7 +1,7 @@
 import { basename, extname } from 'path'
 import { campializeAndCamelCase, replaceExtension } from './utils'
 
-const RIOT_VERSION = 'next'
+const RIOT_VERSION = '4'
 
 export default function generateHTMLPreview(entrypoint) {
   const componentExtension = extname(entrypoint)
