@@ -6,7 +6,6 @@
   "jsnext:main": "src/main.js",
   "module": "src/main.js",
   "scripts": {
-    "prepare": "npm i @riotjs/compiler --no-save",
     "prepublishOnly": "npm test",
     "lint": "eslint *.js src/*.js",
     "test": "npm run lint && mocha -r esm test.js"
