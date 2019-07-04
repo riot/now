@@ -29,13 +29,13 @@
   },
   "homepage": "https://github.com/GianlucaGuarini/@riotjs/now#readme",
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.1",
     "eslint-config-riot": "^2.0.0",
     "mocha": "^6.1.4"
   },
   "dependencies": {
-    "@riotjs/compiler": "^4.2.3",
-    "@now/build-utils": "^0.5.5",
+    "@riotjs/compiler": "^4.3.2",
+    "@now/build-utils": "^0.7.4",
     "cumpa": "^1.0.1",
     "esm": "^3.2.25"
   }

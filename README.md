@@ -1,6 +1,8 @@
 # @riotjs/now
 Riot.js [now](https://zeit.co/docs/v2/deployments/builders/overview/) builder
 
+[demo project](https://github.com/GianlucaGuarini/riot-now-demo)
+
 [![Build Status][travis-image]][travis-url]
 
 [![NPM version][npm-version-image]][npm-url]
